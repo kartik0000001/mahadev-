@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My PWA App</title>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0d6efd">
+
+</head>
+<body>
+  <h1>🚀 My PWA App</h1>
+  <p>This app works offline and can be converted to APK.</p>
+
+  <button onclick="alert('PWA Working!')">Test Button</button>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js")
+          .then(() => console.log("Service Worker Registered"))
+          .catch(err => console.log("SW Error:", err));
+      });
+    }
+  </script>
+</body>
+</html>
